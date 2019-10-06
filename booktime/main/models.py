@@ -16,6 +16,7 @@ class ProductImage(models.Model):
     )
 
     image = models.ImageField(upload_to="product-images")
+    thumbnail = models.ImageField(upload_to="product-thumbnails", null=True)
 
 class ProductTag(models.Model):
     products = models.ManyToManyField(Product, blank=True )
@@ -23,4 +24,3 @@ class ProductTag(models.Model):
     slug = models.SlugField(max_length=48)
     description = models.TextField(blank=True)
     active = models.BooleanField(default=True)
-    
