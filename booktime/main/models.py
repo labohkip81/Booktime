@@ -29,12 +29,21 @@ class ProductImage(models.Model):
     image = models.ImageField(upload_to="product-images")
     thumbnail = models.ImageField(upload_to="product-thumbnails", null=True)
 
+
+
+
+class ProductTagManager(models.manager):
+    def get_by_natural_key(self, slug):
+        return self.get(slug=slug)
+
+        
 class ProductTag(models.Model):
     products = models.ManyToManyField(Product, blank=True )
     name = models.CharField(max_length=32)
     slug = models.SlugField(max_length=48)
     description = models.TextField(blank=True)
     active = models.BooleanField(default=True)
+    objects = ProductTagManager()
 
     def __str__(self):
         return self.name
