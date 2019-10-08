@@ -9,6 +9,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_editable = ('in_stock', )
     search_fields = ('name',)
     prepopulated_fields = {"slug": ("name",)}
+    #autocomplete_fields = ('tags',)
 
 
 
@@ -40,7 +41,7 @@ class ProductImageAdmin(admin.ModelAdmin):
          ) 
         return "-"
     thumbnail_tag.short_description = "Thumbnail"
-    
+
     def product_name(self, obj):
         return obj.product.name
 
