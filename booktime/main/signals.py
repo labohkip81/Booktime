@@ -33,7 +33,7 @@ def generatee_thumbnail(sender,instance, **kwargs):
         save=False
     )
 
-    temp_thumb.close
+    temp_thumb.close()
 
 
     #stopped at page 63 of the book.
