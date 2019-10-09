@@ -14,7 +14,7 @@ class Product(models.Model):
     active = models.BooleanField(default=True)
     in_stock = models.BooleanField(default=True)
     date_updated = models.DateTimeField(auto_now=True)
-    #tags = models.ManyToManyField(ProductTag, blank=True)
+    tags = models.ManyToManyField("ProductTag", blank=True)
     objects = ActiveManager()
 
 
