@@ -1,4 +1,3 @@
-from django.core.management.base import BaseCommand
 from collections import Counter
 import csv
 import os.path
@@ -66,5 +65,4 @@ class Command(BaseCommand):
     )
     self.stdout.write("Images processed = %d" % c["images"])
         
-
 
