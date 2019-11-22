@@ -16,7 +16,7 @@ class  ProductListView(ListView):
     def get_queryset(self):
         tag = self.kwargs['tag']
         self.tag = None
-        if tag == "all":
+        if tag != "all":
             self.tag =get_object_or_404(
                 models.ProductTag, slug=tag
             )
@@ -27,7 +27,9 @@ class  ProductListView(ListView):
         else:
             products = models.Product.objects.active()
 
-        return products.order_buy("name")
+        return products.order_by("name")
+
+        
 
 
 class ContactUsView(FormView):
@@ -38,4 +40,7 @@ class ContactUsView(FormView):
     def form_valid(self, form):
         form.send_mail()
         return super().form_valid(form)
+
+
+
         
